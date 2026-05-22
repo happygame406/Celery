@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from datetime import datetime, UTC
 from enum import StrEnum
 from uuid import UUID, uuid4
@@ -70,7 +69,6 @@ class JobDB(SQLModel, table=True):
     error: str | None = Field(default=None, max_length=2000)
 
     payload: str | None = Field(default=None, max_length=5000)
-=======
 from datetime import datetime, UTC
 from enum import StrEnum
 from uuid import UUID, uuid4
@@ -142,5 +140,4 @@ class JobDB(SQLModel, table=True):
     error: str | None = Field(default=None, max_length=2000)
 
     payload: str | None = Field(default=None, max_length=5000)
->>>>>>> 6cb3aec290b93be653045ba185c05f0837820868
     result: str | None = Field(default=None, max_length=5000)

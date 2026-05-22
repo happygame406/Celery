@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import json
 from datetime import datetime
 from uuid import UUID
@@ -69,7 +68,6 @@ async def update_job_state(
     session.add(job)
     await session.commit()
     await session.refresh(job)
-=======
 import json
 from datetime import datetime
 from uuid import UUID
@@ -140,5 +138,4 @@ async def update_job_state(
     session.add(job)
     await session.commit()
     await session.refresh(job)
->>>>>>> 6cb3aec290b93be653045ba185c05f0837820868
     return job

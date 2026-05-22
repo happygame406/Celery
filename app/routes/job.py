@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import json
 from uuid import UUID
 
@@ -87,7 +86,6 @@ async def get_job(
     if job is None:
         raise HTTPException(status_code=404, detail="Job not found")
 
-=======
 import json
 from uuid import UUID
 
@@ -176,5 +174,4 @@ async def get_job(
     if job is None:
         raise HTTPException(status_code=404, detail="Job not found")
 
->>>>>>> 6cb3aec290b93be653045ba185c05f0837820868
     return _build_job_out(job)
