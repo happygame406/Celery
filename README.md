@@ -6,10 +6,11 @@
 
 ```bash
 # 1. Клонировать репозиторий
-git clone <your-repo>
+git clone https://github.com/happygame406/Celery
 cd Celery
 
-# 2. Запуск через Docker Compose
+# 2. Пересобрать и запустить все контейнеры
+docker-compose down 
 docker-compose up -d --build
 
 # 3. Применить миграции
