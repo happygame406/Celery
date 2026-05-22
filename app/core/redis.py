@@ -3,6 +3,6 @@ import redis.asyncio as redis
 from app.core.settings import settings
 
 redis_client = redis.from_url(
-    url=settings.redis_url,
+    url=settings.REDIS_URL,
     decode_responses=True
 )

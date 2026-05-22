@@ -4,7 +4,8 @@ from uuid import UUID
 from fastapi import APIRouter, HTTPException, Query
 from loguru import logger
 
-from app.core.settings import settings
+from app.core.settings import Settings
+settings = Settings()
 from app.core.redis import redis_client
 from app.core.database import SessionDep
 from app.models.job import JobOut, JobCreate, JobsSummaryOut, JobDB, JobType, QueueName
