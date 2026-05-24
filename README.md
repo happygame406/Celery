@@ -34,8 +34,7 @@ docker-compose exec api alembic upgrade head
 Главный API: http://localhost:8000
 Swagger (интерактивная документация): http://localhost:8000/docs
 Redoc: http://localhost:8000/redoc
-
-
+---
 ## 🎲 Примеры запросов
 ### 1. Симуляция кубиков (Monte Carlo)
 ```bash
@@ -47,7 +46,7 @@ JSON{
   }
 }
 ```
-
+---
 ### 2. Анализ слов на странице
 ```bash
 JSON{
@@ -59,7 +58,7 @@ JSON{
   }
 }
 ```
-
+---
 ### 3. Сравнение двух страниц
 ```bash
 JSON{
@@ -78,8 +77,7 @@ Backend: FastAPI
 База данных: PostgreSQL + SQLModel
 Миграции: Alembic
 Контейнеризация: Docker Compose
-
-
+---
 ## 📌 Особенности
 
 Полная асинхронная обработка задач
