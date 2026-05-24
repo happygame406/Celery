@@ -50,8 +50,9 @@ class JobsSummaryOut(SQLModel):
     failed: int
 
 
-class JobDB(SQLModel, table=True, extend_existing=True):
+class JobDB(SQLModel, table=True):
     tablename = "jobs"
+    
     id: UUID = Field(default_factory=uuid4, primary_key=True)
     title: str = Field(min_length=1, max_length=200)
     job_type: str | None = Field(default=None, max_length=100)
