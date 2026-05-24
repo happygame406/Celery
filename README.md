@@ -70,6 +70,7 @@ JSON{
   }
 }
 ```
+---
 ## 🛠 Технологии
 
 Backend: FastAPI
