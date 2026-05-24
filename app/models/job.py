@@ -1,7 +1,7 @@
 from datetime import datetime, UTC
 from enum import StrEnum
 from uuid import UUID, uuid4
-from typing import Optional
+from typing import Optional, ClassVar
 from sqlalchemy import DateTime
 from sqlmodel import Field, SQLModel
 
@@ -17,7 +17,7 @@ class JobType(StrEnum):
     HTTP_CHECK = "HTTP_CHECK"
     WORD_STATS = "WORD_STATS"
     WORD_STATS_COMPARE = "WORD_STATS_COMPARE"
-    DICE_COMBS_SIMULATION = "DICE_COMBS_SIMULATION"   # ← важно
+    DICE_COMBS_SIMULATION = "DICE_COMBS_SIMULATION"
 
 
 class QueueName(StrEnum):
@@ -51,8 +51,8 @@ class JobsSummaryOut(SQLModel):
 
 
 class JobDB(SQLModel, table=True):
-    tablename = "jobs"
-    
+    __tablename__: ClassVar[str] = "jobs"
+
     id: UUID = Field(default_factory=uuid4, primary_key=True)
     title: str = Field(min_length=1, max_length=200)
     job_type: str | None = Field(default=None, max_length=100)
