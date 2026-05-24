@@ -28,16 +28,17 @@ docker-compose up -d --build
 
 # 3. Применить миграции
 docker-compose exec api alembic upgrade head
-
-📍 Полезные ссылки
+```
+## 📍 Полезные ссылки
 
 Главный API: http://localhost:8000
 Swagger (интерактивная документация): http://localhost:8000/docs
 Redoc: http://localhost:8000/redoc
 
 
-🎲 Примеры запросов
+## 🎲 Примеры запросов
 1. Симуляция кубиков (Monte Carlo)
+```bash
 JSON{
   "title": "Симуляция кубиков",
   "job_type": "DICE_COMBS_SIMULATION",
@@ -45,7 +46,10 @@ JSON{
     "trials": 50000
   }
 }
+```
+
 2. Анализ слов на странице
+```bash
 JSON{
   "title": "Анализ python.org",
   "job_type": "WORD_STATS",
@@ -54,7 +58,10 @@ JSON{
     "top_n": 15
   }
 }
+```
+
 3. Сравнение двух страниц
+```bash
 JSON{
   "title": "Сравнение двух сайтов",
   "job_type": "WORD_STATS_COMPARE",
@@ -63,8 +70,8 @@ JSON{
     "right_job_id": "uuid_второй_задачи"
   }
 }
-
-🛠 Технологии
+```
+## 🛠 Технологии
 
 Backend: FastAPI
 Фоновые задачи: Celery + Redis
@@ -73,7 +80,7 @@ Backend: FastAPI
 Контейнеризация: Docker Compose
 
 
-📌 Особенности
+## 📌 Особенности
 
 Полная асинхронная обработка задач
 Валидация входных данных
