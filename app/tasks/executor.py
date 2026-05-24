@@ -17,13 +17,14 @@ from app.tasks.handlers.dice_combs import extract_dice_payload, simulate_dice_co
 
 
 @current_app.task(name="run_job_task", bind=True, max_retries=3)
-async def run_job_task(self, job_id: UUID) -> None:
-    """Основная задача Celery"""
-    await execute_job(job_id)
+def run_job_task(self, job_id: UUID):
+    """Синхронная обёртка для async задачи"""
+    import asyncio
+    return asyncio.run(execute_job(job_id))
 
 
 async def execute_job(job_id: UUID) -> None:
-    """Логика выполнения задания"""
+    """Основная логика выполнения задания"""
     log = logger.bind(job_id=str(job_id), task="execute_job")
     log.info("Celery job started")
 
@@ -69,4 +70,5 @@ async def execute_job(job_id: UUID) -> None:
         log.success("Set status -> DONE")
 
 
-execute_job = run_job_task
+# Для совместимости
+execute_job_sync = run_job_task
