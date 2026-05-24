@@ -4,9 +4,7 @@ from app.tasks.exceptions import PermanentJobError
 
 
 def extract_dice_payload(payload: dict | None) -> int:
-    """
-    Валидация payload для задачи DICE_COMBS_SIMULATION
-    """
+    """Валидация payload для DICE_COMBS_SIMULATION"""
     if payload is None:
         raise PermanentJobError("DICE_COMBS_SIMULATION requires payload")
 
@@ -22,21 +20,18 @@ def extract_dice_payload(payload: dict | None) -> int:
 
 
 def simulate_dice_combinations(trials: int) -> dict:
-    """
-    Моделирование бросков 5 шестигранных кубиков методом Монте-Карло
-    """
+    """Моделирование бросков 5 кубиков методом Монте-Карло"""
     counts = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
 
     for _ in range(trials):
         dice = [random.randint(1, 6) for _ in range(5)]
         freq = Counter(dice)
-
         max_count = max(freq.values())
 
         if max_count == 1:
             category = 1
         elif max_count == 2:
-            category = 2 
+            category = 2
         elif max_count == 3:
             category = 3
         elif max_count == 4:
