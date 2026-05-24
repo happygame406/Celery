@@ -37,7 +37,7 @@ Redoc: http://localhost:8000/redoc
 
 
 ## 🎲 Примеры запросов
-1. Симуляция кубиков (Monte Carlo)
+# 1. Симуляция кубиков (Monte Carlo)
 ```bash
 JSON{
   "title": "Симуляция кубиков",
