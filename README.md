@@ -32,7 +32,9 @@ docker-compose exec api alembic upgrade head
 ## 📍 Полезные ссылки
 
 Главный API: http://localhost:8000
+
 Swagger (документация): http://localhost:8000/docs
+
 ---
 ## 🎲 Примеры запросов
 ### 1. Симуляция кубиков (Monte Carlo)
