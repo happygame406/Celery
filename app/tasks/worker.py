@@ -10,14 +10,10 @@ celery_app.conf.task_serializer = "json"
 celery_app.conf.accept_content = ["json"]
 celery_app.conf.result_serializer = "json"
 celery_app.conf.timezone = "UTC"
-celery_app.conf.enable_utc = True
 
 celery_app.autodiscover_tasks([
     "app.tasks.executor",
     "app.tasks.tasks",
 ])
 
-print("Celery app initialized successfully with Redis:", settings.REDIS_URL)
-
-if __name__ == "__main__":
-    celery_app.start()
+print("✅ Celery worker started successfully!")
