@@ -14,6 +14,7 @@ celery_app.conf.enable_utc = True
 
 celery_app.autodiscover_tasks([
     "app.tasks.executor",
+    "app.tasks.tasks",
 ])
 
 print("Celery app initialized successfully with Redis:", settings.REDIS_URL)

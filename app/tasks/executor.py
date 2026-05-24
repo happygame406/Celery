@@ -75,5 +75,7 @@ async def run_job_task(self, job_id: UUID) -> None:
             raise
 
 
-# Для обратной совместимости
+
 execute_job = run_job_task
+execute_job = run_job_task
+
