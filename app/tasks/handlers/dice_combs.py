@@ -4,12 +4,10 @@ from app.tasks.exceptions import PermanentJobError
 
 
 def extract_dice_payload(payload: dict | None) -> int:
-    """Валидация payload для DICE_COMBS_SIMULATION"""
     if payload is None:
         raise PermanentJobError("DICE_COMBS_SIMULATION requires payload")
 
     trials = payload.get("trials")
-
     if trials is None:
         raise PermanentJobError("DICE_COMBS_SIMULATION requires trials")
 
@@ -20,7 +18,6 @@ def extract_dice_payload(payload: dict | None) -> int:
 
 
 def simulate_dice_combinations(trials: int) -> dict:
-    """Моделирование бросков 5 кубиков методом Монте-Карло"""
     counts = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
 
     for _ in range(trials):
@@ -41,9 +38,7 @@ def simulate_dice_combinations(trials: int) -> dict:
 
         counts[category] += 1
 
-    probabilities = {
-        k: round(count / trials, 3) for k, count in counts.items()
-    }
+    probabilities = {k: round(v / trials, 3) for k, v in counts.items()}
 
     return {
         "trials": trials,

@@ -1,5 +1,6 @@
 from celery import Celery
 from app.core.config import settings
+from app.tasks.executor import execute_job   # ← прямой импорт
 
 celery_app = Celery("jobs_worker")
 
@@ -11,9 +12,11 @@ celery_app.conf.accept_content = ["json"]
 celery_app.conf.result_serializer = "json"
 celery_app.conf.timezone = "UTC"
 
-celery_app.autodiscover_tasks([
-    "app.tasks.executor",
-    "app.tasks.tasks",
-])
+# Прямая регистрация задачи
+celery_app.task(name="run_job_task")(execute_job)
 
-print("✅ Celery worker started successfully!")
+print("✅ Celery worker started with direct task registration")
+print("Registered task: run_job_task")
+
+if __name__ == "__main__":
+    celery_app.start()
