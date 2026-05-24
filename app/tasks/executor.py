@@ -63,6 +63,14 @@ async def run_job_task(self, job_id: UUID) -> None:
         )
         log.success("Set status -> DONE")
 
+        await update_job_state(
+            session=session,
+            job=job,
+            status=JobStatus.DONE,
+            finished_at=datetime.now(UTC),
+            result=result
+        )
+        log.success("Set status -> DONE")
 
-# Для совместимости
+
 execute_job = run_job_task
